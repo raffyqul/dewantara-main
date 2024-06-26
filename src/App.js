@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./App.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Home from "./pages/Home/Index";
+import Event from "./pages/Event/Index";
+import About from "./pages/About/Index";
+import Museum from "./pages/Museum/Index";
+import Article from "./pages/Article/Index";
+import DetailMuseum from "./pages/DetailMuseum/Index";
+import Wayang from "./pages/Wayang/Index";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/event" element={<Event />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/museum" element={<Museum />} />
+        <Route path="/article" element={<Article />} />
+        <Route path="/wayang" element={<Wayang />} />
+        <Route path="/detailmuseum" element={<DetailMuseum />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
