@@ -1,3 +1,5 @@
+import React, { useRef } from "react";
+import Slider from "react-slick";
 import Wayang1 from "../../../assets/Images/DetailWayang/yudhistira.png";
 import Wayang2 from "../../../assets/Images/DetailWayang/yudhistira.png";
 import Wayang3 from "../../../assets/Images/DetailWayang/yudhistira.png";
@@ -7,37 +9,85 @@ import Wayang6 from "../../../assets/Images/DetailWayang/yudhistira.png";
 import Wayang7 from "../../../assets/Images/DetailWayang/yudhistira.png";
 import Wayang8 from "../../../assets/Images/DetailWayang/yudhistira.png";
 import IcArrow from "../../../assets/Icon/icon-arrow.svg";
-import IcSearch from "../../../assets/Icon/icon-search.svg";
 
-export default function Wayang() {
+const Slick = () => {
+  const sliderRef = useRef(null);
+
+  const settings = {
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+  };
+
   return (
-    <section className="py-[72px]">
+    <section className="pt-10 pb-12">
       <div className="container mx-auto">
-        <div className="wayang flex flex-col gap-12">
-          <div className="content-top flex flex-col items-center justify-center gap-2">
-            <h2>Wayang</h2>
-            <span className="text-base text-gray text-center max-w-[402px]">
-              Jelajahi dunia perwayangan agar lebih mengenal wayang di Indonesia
-            </span>
-          </div>
-          <div className="content-bottom flex flex-col gap-12 items-center">
-            <div className="wrapper flex items-center gap-4 justify-center">
-              <div className="wrap-search">
-                <form action="" className="inline-flex">
-                  <input
-                    type="search"
-                    name=""
-                    id=""
-                    className="outline-none rounded-[8px_0_0_8px] border-2 border-[#ADB5BD] px-4 py-2.5 w-[500px]"
+        <div className="content flex flex-col gap-6">
+          <div className="content-top flex justify-between items-center">
+            <h2>Lihat Wayang Lainnya</h2>
+            <div className="wrap inline-flex gap-4">
+              <button
+                className="btn btn-arrow"
+                id="prev"
+                onClick={() => sliderRef.current.slickPrev()}
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10 19L3 12L10 5"
+                    stroke="#CED4DA"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
-                  <button className="btn btn-search">
-                    <img src={IcSearch} alt="" />
-                    Cari
-                  </button>
-                </form>
-              </div>
+                  <path
+                    d="M3 12H21"
+                    stroke="#CED4DA"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+              <button
+                className="btn btn-arrow"
+                id="next"
+                onClick={() => sliderRef.current.slickNext()}
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M14 5L21 12L14 19"
+                    stroke="#CED4DA"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M21 12H3"
+                    stroke="#CED4DA"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
             </div>
-            <div className="content-card grid grid-cols-4 gap-6">
+          </div>
+          <div className="content-bottom slider-wrapper">
+            <Slider ref={sliderRef} className="slider flex gap-6" {...settings}>
+              {" "}
               <div className="card rounded-lg overflow-hidden">
                 <img
                   src={Wayang1}
@@ -198,11 +248,13 @@ export default function Wayang() {
                   </button>
                 </div>
               </div>
-            </div>
-            <button className="btn btn-primary">Lihat Wayang Lainnya</button>
+              {/* Tambahkan lebih banyak kartu jika diperlukan */}
+            </Slider>
           </div>
         </div>
       </div>
     </section>
   );
-}
+};
+
+export default Slick;

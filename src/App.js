@@ -9,7 +9,8 @@ import Museum from "./pages/Museum/Index";
 import Article from "./pages/Article/Index";
 import DetailMuseum from "./pages/DetailMuseum/Index";
 import Wayang from "./pages/Wayang/Index";
-
+import DetailWayang from "./pages/DetailWayang/Index";
+import DetailArtikel from "./pages/DetailArtikel/Index";
 const App = () => {
   return (
     <Router>
@@ -21,6 +22,8 @@ const App = () => {
         <Route path="/article" element={<Article />} />
         <Route path="/wayang" element={<Wayang />} />
         <Route path="/detailmuseum" element={<DetailMuseum />} />
+        <Route path="/detailwayang" element={<DetailWayang />} />
+        <Route path="/detailartikel" element={<DetailArtikel />} />
       </Routes>
     </Router>
   );

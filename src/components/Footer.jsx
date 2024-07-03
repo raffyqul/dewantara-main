@@ -28,7 +28,7 @@ export default function Footer() {
                     Event Wayang
                   </a>
                   <a href="/Wayang" className="footer-link">
-                    Para Wayang
+                    Wayangpedia
                   </a>
                 </div>
                 <div className="wrap flex flex-col gap-4">
@@ -43,13 +43,13 @@ export default function Footer() {
             </div>
             <div className="footer-about">
               <h5 className="font-bold text-2xl text-secondary mb-4">
-                Kenali Dewantara
+                Kenali Kami
               </h5>
               <a
                 href="https://www.instagram.com/pkmkc.dewantara"
                 className="footer-link"
               >
-                Instagram Kami
+                Instagram Dewantara
               </a>
             </div>
           </div>
